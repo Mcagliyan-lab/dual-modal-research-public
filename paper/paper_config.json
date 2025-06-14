@@ -1,0 +1,44 @@
+{
+  "title": "Dual-Modal Neural Network Interpretability: Integrating Temporal and Spatial Analysis for Enhanced AI Understanding",
+  "authors": [
+    "Research Team"
+  ],
+  "venue": "IEEE/ACM Tier-1 Journal",
+  "submission_deadline": "2025-07-15",
+  "target_venue": "IEEE Transactions on Neural Networks and Learning Systems",
+  "paper_type": "Original Research",
+  "word_limit": 8000,
+  "figure_limit": 12,
+  "table_limit": 6,
+  "reference_target": 50,
+  "sections": {
+    "abstract": {
+      "target_words": 250,
+      "status": "complete"
+    },
+    "introduction": {
+      "target_words": 800,
+      "status": "complete"
+    },
+    "methodology": {
+      "target_words": 1500,
+      "status": "complete"
+    },
+    "results": {
+      "target_words": 1200,
+      "status": "complete"
+    },
+    "discussion": {
+      "target_words": 1000,
+      "status": "draft"
+    },
+    "conclusion": {
+      "target_words": 400,
+      "status": "draft"
+    },
+    "references": {
+      "target_count": 50,
+      "status": "partial"
+    }
+  }
+}
