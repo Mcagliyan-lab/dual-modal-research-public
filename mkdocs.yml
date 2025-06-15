@@ -1,0 +1,112 @@
+site_name: Dual-Modal Neural Network Neuroimaging Framework
+site_url: https://your_github_username.github.io/dual-modal-research/ # Update with your GitHub Pages URL
+
+nav:
+  - Home: README.md
+  - Proje Genel Bakış ve Temel Bilgiler:
+    - Başlangıç Kılavuzu: docs/getting-started.md
+    - Davranış Kuralları: project_docs/CODE_OF_CONDUCT.md
+    - Katkıda Bulunma Rehberi: project_docs/CONTRIBUTING.md
+  - Proje Yönetimi ve Dahili Notlar:
+    - AI Oturum Notları: project_docs/ai_session_notes.md
+    - Proje Analiz Raporu: project_docs/proje_analiz_raporu.md
+    - Proje Çalışma Planı: project_docs/proje_calisma_plani.md
+    - Kanıt Değerlendirme Raporu: project_docs/evidence_assessment_report.md
+    - Nihai İlerleme Raporu: project_docs/progress_report_final.md
+    - AI Proje Yönetimi Promptları: project_docs/ai_prompt_for_project_management.md
+    - Karar Kayıtları: research-journal/decisions-log.md
+    - Sonraki Adımlar: research-journal/next-steps.md
+    - İlerleme Günlüğü: research-journal/progress.md
+  - Dokümantasyon ve Örnekler:
+    - API Dokümantasyonu: docs/api-documentation.md
+    - Örnek Kullanımlar: docs/examples.md
+    - Gelişmiş Kullanım Örnekleri: examples/ADVANCED_USAGE.md
+    - Sorun Giderme Kılavuzu: docs/troubleshooting.md
+    - Kalite Kontrol Checklist: docs/QUALITY_CHECKLIST.md
+    - Doğrulama Özeti: docs/validation_summary.md
+  - Akademik Makale Taslakları:
+    - Tam Makale Taslağı: paper/full-paper-draft.md
+    - Özet: paper/draft-sections/abstract.md
+    - Giriş: paper/draft-sections/introduction.md
+    - Metodoloji: paper/draft-sections/methodology.md
+    - Sonuçlar: paper/draft-sections/results.md
+    - Tartışma: paper/draft-sections/discussion.md
+    - Gönderime Hazır Makale Notları: paper/submission-ready/README.md
+  - Kaynaklar:
+    - İşbirliği Fırsatları: resources/collaboration-opportunities.md
+    - Veri Setleri: resources/datasets.md
+    - Literatür İncelemesi: resources/literature-review.md
+    - Araçlar ve Bağımlılıklar: resources/tools-and-dependencies.md
+  - Teori:
+    - Çerçeveye Genel Bakış: theory/framework-overview.md
+    - Terimler Sözlüğü: theory/GLOSSARY.md
+    - Matematiksel Temeller: theory/mathematical-foundations.md
+    - Matematiksel Uygulama: theory/MATHEMATICAL-IMPLEMENTATION.md
+    - Modül Formülleri: theory/MODULE_FORMULAS.md
+    - NN-EEG Metodolojisi: theory/nn-eeg-methodology.md
+    - NN-fMRI Metodolojisi: theory/nn-fmri-methodology.md
+  - Dahili/Üretilmiş Dosyalar:
+    - Pytest Önbellek README: .pytest_cache/README.md
+    - Deneysel Veriler README: results/experimental-data/README.md
+    - Görselleştirmeler README: results/visualizations/README.md
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotation
+    - content.code.copy
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          options:
+            filters: ["!^_[_a-zA-Z]", "!^run_cifar10_demonstration"]
+            show_signature_annotations: true
+            show_object_full_path: true
+            show_root_heading: true
+            show_root_toc_entry: false
+            show_object_details: false
+            show_category_heading: true
+            show_if_no_docstring: false
+            group_by_annotations: true
+            members_order: "source"
+            heading_level: 2
+            line_length: 80
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/your_username/dual-modal-research # Update with your GitHub URL
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - def_list
+  - attr_list
+  - footnotes
+  - abbr
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.snippets
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_css:
+  - stylesheets/extra.css # For custom styles if needed 

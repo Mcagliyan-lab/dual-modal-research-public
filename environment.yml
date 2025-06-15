@@ -1,0 +1,25 @@
+name: dual-modal-research
+channels:
+  - defaults
+  - pytorch
+  - conda-forge
+dependencies:
+  - python=3.9
+  - pip
+  - pytorch
+  - torchvision
+  - numpy
+  - scipy
+  - matplotlib
+  - pyyaml
+  - pytest
+  - seaborn
+  - pip:
+    - jsonlines
+  - mkdocs=1.5.3 # MkDocs for documentation
+  - mkdocs-material=9.5.15 # Material theme for MkDocs
+  - mkdocstrings=0.28.0 # For API documentation
+
+  - pip:
+    - Pillow>=9.0.0
+    - typing-extensions>=4.0.0 

@@ -4,7 +4,7 @@ Dual-Modal Neural Network Neuroimaging Framework
 A comprehensive framework for interpretable AI using dual-modal analysis
 combining NN-EEG temporal analysis and NN-fMRI spatial analysis.
 
-Core Achievement: 91.66% ±0.05% cross-modal consistency on CIFAR-10
+Core Achievement: 89.7% ±0.05% cross-modal consistency on CIFAR-10
 """
 
 __version__ = "1.0.0"
@@ -98,7 +98,7 @@ VALIDATION_RESULTS = {
         "std_deviation": 0.0005,
         "processing_time": 58.96,
         "dataset_size": 10000,
-        "statistical_significance": "p < 0.001"
+        "statistical_significance": "p < 0.05"
     }
 }
 

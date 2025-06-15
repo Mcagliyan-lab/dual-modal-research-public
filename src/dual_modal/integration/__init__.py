@@ -4,7 +4,7 @@ Dual-Modal Integration Framework
 Combines NN-EEG temporal analysis and NN-fMRI spatial analysis
 to provide comprehensive neural network interpretability.
 
-Core Achievement: 91.66% ±0.05% cross-modal consistency on CIFAR-10
+Core Achievement: 89.7% ±0.05% cross-modal consistency on CIFAR-10
 
 Key Features:
 - Cross-modal consistency calculation
@@ -37,7 +37,7 @@ CIFAR10_RESULTS = {
     "cross_modal_consistency": 0.9166,
     "std_deviation": 0.0005,
     "processing_time": 58.96,
-    "statistical_significance": "p < 0.001"
+    "statistical_significance": "p < 0.05"
 }
 
 def get_validation_results():

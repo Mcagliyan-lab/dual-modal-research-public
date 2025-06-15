@@ -1,79 +1,76 @@
-# API Reference
+# 📖 API Documentation
 
-## DualModalNetwork
+## NN-EEG Module
 
-Main neural network class for dual-modal processing.
+### NeuralEEG Class
 
-### Constructor
+**Main temporal analysis class**
 
-```python
-DualModalNetwork(
-    vision_backbone='resnet50',
-    text_backbone='bert-base-uncased', 
-    num_classes=1000,
-    fusion_dim=512,
-    num_heads=8
-)
-```
+#### `__init__(model, sample_rate=1.0)`
+Initialize NN-EEG analyzer
+- `model`: PyTorch neural network
+- `sample_rate`: Sampling rate for frequency analysis
 
-**Parameters:**
-- `vision_backbone` (str): Vision encoder backbone ('resnet50')
-- `text_backbone` (str): Text encoder backbone ('bert-base-uncased')
-- `num_classes` (int): Number of output classes
-- `fusion_dim` (int): Fusion layer hidden dimension
-- `num_heads` (int): Number of attention heads
+#### `extract_temporal_signals(dataloader, max_batches=50)`
+Extract temporal signals from layer activations
+- Returns: Dictionary of layer-wise temporal signals
 
-### Methods
+#### `analyze_frequency_domain(temporal_signals=None)`
+Perform frequency domain analysis
+- Returns: Frequency analysis results with PSD and band powers
 
-#### forward(images, texts)
-Forward pass through the network.
+#### `classify_operational_states(frequency_analysis=None)`
+Classify network operational state
+- Returns: State classification ('training', 'inference', 'idle', 'error')
 
-**Parameters:**
-- `images` (torch.Tensor): Input images [B, 3, 224, 224]
-- `texts` (list): List of text strings
+## NN-fMRI Module
 
-**Returns:**
-- `torch.Tensor`: Class logits [B, num_classes]
+### NeuralFMRI Class
 
-#### predict(images, texts)
-Make predictions with softmax probabilities.
+**Main spatial analysis class**
 
-**Parameters:**
-- `images` (torch.Tensor): Input images [B, 3, 224, 224]
-- `texts` (list): List of text strings
+#### `__init__(model, grid_size=(8,8,4))`
+Initialize NN-fMRI analyzer
+- `model`: PyTorch neural network  
+- `grid_size`: 3D grid dimensions for spatial partitioning
 
-**Returns:**
-- `torch.Tensor`: Class probabilities [B, num_classes]
+#### `analyze_spatial_patterns(data)`
+Analyze spatial activation patterns
+- Returns: Spatial analysis results
 
-## Helper Functions
+#### `compute_zeta_scores(validation_data)`
+Compute impact scores for spatial regions
+- Returns: ζ-scores for each grid region
 
-### create_model(config=None)
-Factory function to create a dual-modal network.
+## Integration Module
 
-**Parameters:**
-- `config` (dict, optional): Model configuration
+### DualModalIntegrator Class
 
-**Returns:**
-- `DualModalNetwork`: Configured model instance
+**Combined temporal + spatial analysis**
 
-## Example Usage
+#### `__init__(model)`
+Initialize dual-modal analyzer
 
-```python
-from models.dual_modal_net import create_model
-import torch
+#### `analyze(data, report_type='technical')`
+Complete dual-modal analysis
+- Returns: Comprehensive analysis results
 
-# Create model with custom config
-config = {
-    'num_classes': 10,
-    'fusion_dim': 256
-}
-model = create_model(config)
+#### `cross_modal_validation(nn_eeg_results, nn_fmri_results)`
+Perform cross-modal validation between NN-EEG and NN-fMRI results
+- Returns: Validation metrics and consistency scores
 
-# Prepare inputs
-images = torch.randn(2, 3, 224, 224)
-texts = ["A cat", "A dog"]
+## Utility Modules
 
-# Forward pass
-logits = model(images, texts)
-predictions = model.predict(images, texts)
-``` 
+### Data Loaders
+- `create_cifar10_dataloader()`: CIFAR-10 dataset loader
+- `create_mnist_dataloader()`: MNIST dataset loader  
+- `create_synthetic_dataloader()`: Synthetic test data loader
+
+### Visualization
+- `plot_frequency_analysis()`: NN-EEG results visualization
+- `plot_spatial_grids()`: NN-fMRI results visualization
+- `create_comprehensive_visualizations()`: Combined visualization dashboard
+
+### Metrics
+- `cross_modal_validation()`: Cross-modal consistency evaluation
+- `compute_consistency_score()`: Dual-modal consistency metrics

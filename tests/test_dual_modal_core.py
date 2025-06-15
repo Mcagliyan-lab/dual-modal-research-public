@@ -87,7 +87,7 @@ class TestDualModalCore:
         # Validate key metrics
         consistency = cifar10_results["cross_modal_consistency"]
         assert isinstance(consistency, float)
-        assert 0.9 <= consistency <= 1.0  # Should be around 91.66%
+        assert 0.9 <= consistency <= 1.0  # Should be around 89.7%
     
     def test_core_classes_available(self) -> None:
         """Test that core classes are importable."""

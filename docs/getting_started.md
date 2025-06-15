@@ -4,7 +4,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/Mcagliyan-lab/dual-modal-research-public.git
+git clone https://github.com/research-lab/signal-processing-framework.git
 cd dual-modal-research-public
 
 # Install dependencies

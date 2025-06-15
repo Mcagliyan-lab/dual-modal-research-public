@@ -1,3 +1,14 @@
+# Kullanım Örnekleri
+
+Bu bölüm, Dual-Modal Neural Network Neuroimaging Framework'ünün çeşitli kullanım senaryolarını gösteren kod örneklerini içerir.
+
+## Hızlı Başlangıç Örneği
+
+Bu örnek, hem NN-EEG hem de NN-fMRI modüllerini entegre ederek temel bir dual-modal analizinin nasıl yapılacağını gösterir.
+
+Aşağıda, hızlı başlangıç örneğini çalıştıran kod bulunmaktadır:
+
+```python
 #!/usr/bin/env python3
 """
 Quick Test: NN-EEG Minimal Validation
@@ -200,4 +211,15 @@ if results['test_status'] == 'SUCCESS':
     print("\nNext step: Run full CIFAR-10 validation")
 else:
     print("\n⚠️  PARTIAL SUCCESS")
-    print("Basic framework works but needs debugging") 
+    print("Basic framework works but needs debugging")
+```
+
+Analiz çıktısı doğrudan konsolda görüntülenecektir ve sonuçlar `results/` dizinine kaydedilecektir.
+
+## Detaylı Test Örnekleri
+
+Çerçevenin kapsamlı test edilmiş örnekleri için `tests/` dizinindeki test dosyalarını inceleyebilirsiniz:
+
+- `tests/test_nn_eeg.py` - NN-EEG modülü testleri
+- `tests/test_nn_fmri.py` - NN-fMRI modülü testleri  
+- `tests/test_integration.py` - Dual-modal entegrasyon testleri 

@@ -1,0 +1,28 @@
+[project]
+name = "dual-modal-neuroimaging"
+version = "0.1.0"
+description = "Dual-Modal Neural Network Neuroimaging Framework"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "torch>=1.10.0",
+    "torchvision>=0.11.0",
+    "numpy>=1.21.0",
+    "matplotlib>=3.4.0",
+    "scipy>=1.7.0",
+    "Pillow>=9.0.0",
+    "typing-extensions>=4.0.0",
+    "pyyaml>=6.0",
+    "pytest>=8.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/your_username/dual-modal-neuroimaging"
+Issues = "https://github.com/your_username/dual-modal-neuroimaging/issues"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"] # Tüm paketleri 'src' dizini altında ara 
