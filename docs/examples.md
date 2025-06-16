@@ -1,12 +1,12 @@
-# Kullanım Örnekleri
+# Usage Examples
 
-Bu bölüm, Dual-Modal Neural Network Neuroimaging Framework'ünün çeşitli kullanım senaryolarını gösteren kod örneklerini içerir.
+This section contains code examples demonstrating various usage scenarios of the Dual-Modal Neural Network Neuroimaging Framework.
 
-## Hızlı Başlangıç Örneği
+## Quick Start Example
 
-Bu örnek, hem NN-EEG hem de NN-fMRI modüllerini entegre ederek temel bir dual-modal analizinin nasıl yapılacağını gösterir.
+This example shows how to perform basic dual-modal analysis by integrating both NN-EEG and NN-fMRI modules.
 
-Aşağıda, hızlı başlangıç örneğini çalıştıran kod bulunmaktadır:
+Below is the code that runs the quick start example:
 
 ```python
 #!/usr/bin/env python3
@@ -198,7 +198,6 @@ print(f"Status: {results['test_status']}")
 print(f"Layers analyzed: {results['model_layers']}")
 print(f"Signal length: {results['signal_length']} time points")
 print(f"Operational state: {results['operational_state']}")
-print(f"Results saved to: results/quick_test_results.json")
 
 if results['test_status'] == 'SUCCESS':
     print("\n🎉 PROOF-OF-CONCEPT VALIDATED!")
@@ -216,10 +215,244 @@ else:
 
 Analiz çıktısı doğrudan konsolda görüntülenecektir ve sonuçlar `results/` dizinine kaydedilecektir.
 
-## Detaylı Test Örnekleri
+## Advanced Usage Examples
 
-Çerçevenin kapsamlı test edilmiş örnekleri için `tests/` dizinindeki test dosyalarını inceleyebilirsiniz:
+### 1. Custom Model Analysis
 
-- `tests/test_nn_eeg.py` - NN-EEG modülü testleri
-- `tests/test_nn_fmri.py` - NN-fMRI modülü testleri  
-- `tests/test_integration.py` - Dual-modal entegrasyon testleri 
+```python
+from dual_modal.nn_eeg import NeuralEEG
+from dual_modal.nn_fmri import NeuralFMRI
+import torch
+import torch.nn as nn
+
+# Define your custom model
+class CustomModel(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.features = nn.Sequential(
+            nn.Conv2d(3, 64, 3, padding=1),
+            nn.ReLU(),
+            nn.MaxPool2d(2),
+            nn.Conv2d(64, 128, 3, padding=1),
+            nn.ReLU(),
+            nn.AdaptiveAvgPool2d(1)
+        )
+        self.classifier = nn.Sequential(
+            nn.Flatten(),
+            nn.Linear(128, 256),
+            nn.ReLU(),
+            nn.Linear(256, 10)
+        )
+    
+    def forward(self, x):
+        x = self.features(x)
+        x = self.classifier(x)
+        return x
+
+# Initialize model and analyzers
+model = CustomModel()
+nn_eeg = NeuralEEG(model, sample_rate=10.0)
+nn_fmri = NeuralFMRI(model, grid_size=(10, 10, 5))
+
+# Perform dual-modal analysis
+test_data = torch.randn(32, 3, 224, 224)
+dataloader = torch.utils.data.DataLoader(
+    torch.utils.data.TensorDataset(test_data, torch.randint(0, 10, (32,))),
+    batch_size=8
+)
+
+# NN-EEG Analysis
+temporal_signals = nn_eeg.extract_temporal_signals(dataloader)
+frequency_analysis = nn_eeg.analyze_frequency_domain(temporal_signals)
+eeg_state = nn_eeg.classify_operational_states(frequency_analysis)
+
+# NN-fMRI Analysis
+fmri_results = nn_fmri.analyze_spatial_patterns(test_data)
+zeta_scores = nn_fmri.compute_zeta_scores(test_data)
+
+print(f"EEG State: {eeg_state}")
+print(f"fMRI Spatial Patterns: {len(fmri_results)} regions analyzed")
+```
+
+### 2. Cross-Modal Validation
+
+```python
+from dual_modal.integration import DualModalIntegrator
+
+# Initialize integrated analyzer
+integrator = DualModalIntegrator(model)
+
+# Perform comprehensive analysis
+results = integrator.analyze(test_data, report_type='detailed')
+
+# Cross-modal validation
+validation_metrics = integrator.cross_modal_validation(
+    results['nn_eeg'], 
+    results['nn_fmri']
+)
+
+print(f"Cross-modal consistency: {validation_metrics['consistency_score']:.3f}")
+print(f"Validation status: {validation_metrics['validation_status']}")
+```
+
+### 3. Batch Processing Pipeline
+
+```python
+import os
+from pathlib import Path
+
+def process_model_batch(model_paths, output_dir):
+    """Process multiple models in batch"""
+    
+    for model_path in model_paths:
+        print(f"Processing: {model_path}")
+        
+        # Load model
+        model = torch.load(model_path)
+        model.eval()
+        
+        # Create analyzers
+        integrator = DualModalIntegrator(model)
+        
+        # Generate test data
+        test_data = torch.randn(50, 3, 224, 224)
+        
+        # Perform analysis
+        results = integrator.analyze(test_data)
+        
+        # Save results
+        output_file = Path(output_dir) / f"{Path(model_path).stem}_analysis.json"
+        with open(output_file, 'w') as f:
+            json.dump(results, f, indent=2)
+        
+        print(f"Results saved to: {output_file}")
+
+# Example usage
+model_paths = [
+    'models/resnet18.pth',
+    'models/vgg16.pth',
+    'models/mobilenet.pth'
+]
+
+process_model_batch(model_paths, 'results/batch_analysis/')
+```
+
+### 4. Real-time Monitoring
+
+```python
+import time
+import threading
+from collections import deque
+
+class RealtimeMonitor:
+    def __init__(self, model, window_size=100):
+        self.model = model
+        self.nn_eeg = NeuralEEG(model)
+        self.window_size = window_size
+        self.signal_buffer = deque(maxlen=window_size)
+        self.running = False
+    
+    def start_monitoring(self):
+        """Start real-time monitoring"""
+        self.running = True
+        monitor_thread = threading.Thread(target=self._monitor_loop)
+        monitor_thread.start()
+    
+    def _monitor_loop(self):
+        """Main monitoring loop"""
+        while self.running:
+            # Simulate incoming data
+            batch_data = torch.randn(4, 3, 224, 224)
+            
+            # Extract signals
+            dataloader = torch.utils.data.DataLoader(
+                torch.utils.data.TensorDataset(batch_data, torch.zeros(4)),
+                batch_size=4
+            )
+            
+            signals = self.nn_eeg.extract_temporal_signals(dataloader, max_batches=1)
+            
+            # Update buffer
+            if signals:
+                avg_signal = np.mean([np.mean(sig) for sig in signals.values()])
+                self.signal_buffer.append(avg_signal)
+            
+            # Analyze current window
+            if len(self.signal_buffer) >= 10:
+                recent_signals = list(self.signal_buffer)[-10:]
+                freq_analysis = self.nn_eeg.analyze_frequency_domain({'current': recent_signals})
+                state = self.nn_eeg.classify_operational_states(freq_analysis)
+                
+                print(f"Current state: {state}, Signal strength: {avg_signal:.3f}")
+            
+            time.sleep(0.1)  # 10Hz monitoring
+    
+    def stop_monitoring(self):
+        """Stop monitoring"""
+        self.running = False
+
+# Example usage
+monitor = RealtimeMonitor(model)
+monitor.start_monitoring()
+
+# Let it run for 30 seconds
+time.sleep(30)
+monitor.stop_monitoring()
+```
+
+## Visualization Examples
+
+### Creating Comprehensive Visualizations
+
+```python
+from dual_modal.visualization import create_comprehensive_visualizations
+
+# After performing analysis
+results = integrator.analyze(test_data)
+
+# Create all visualizations
+create_comprehensive_visualizations(
+    results, 
+    output_dir='visualizations/',
+    include_3d=True,
+    save_interactive=True
+)
+
+print("Visualizations saved to 'visualizations/' directory")
+```
+
+## Performance Optimization
+
+### GPU Acceleration
+
+```python
+# Enable GPU if available
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+model = model.to(device)
+
+# Use GPU-accelerated data loading
+dataloader = torch.utils.data.DataLoader(
+    dataset,
+    batch_size=32,
+    num_workers=4,
+    pin_memory=True if torch.cuda.is_available() else False
+)
+```
+
+### Memory Optimization
+
+```python
+# For large models, use gradient checkpointing
+from torch.utils.checkpoint import checkpoint
+
+# Process in smaller batches to reduce memory usage
+for batch_data, _ in dataloader:
+    with torch.no_grad():
+        # Clear cache periodically
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+        
+        outputs = model(batch_data)
+```
+
+These examples demonstrate the flexibility and power of the Dual-Modal Neural Network Neuroimaging Framework. Each example can be adapted to your specific research needs and extended with additional functionality.

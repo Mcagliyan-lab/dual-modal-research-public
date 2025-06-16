@@ -1,91 +1,91 @@
-# 🤝 Katkıda Bulunma Rehberi
+# 🤝 Contributing Guide
 
-Dual-Modal Neural Network Research Projesi'ne katkıda bulunmakla ilgilendiğiniz için teşekkür ederiz! Bu proje, açık kaynak topluluğunun gücüne inanmaktadır ve her türlü katkıyı memnuniyetle karşılamaktadır. Katkılarınız, projenin gelişiminde kritik bir rol oynamaktadır.
+Thank you for your interest in contributing to the Dual-Modal Neural Network Research Project! This project believes in the power of the open-source community and welcomes all types of contributions. Your contributions play a critical role in the development of the project.
 
-Lütfen katkıda bulunmadan önce bu rehberi dikkatlice okuyunuz. Bu rehber, kod katkıları, hata raporları, özellik istekleri ve dokümantasyon güncellemeleri için yönergeler sağlar.
-
----
-
-## 📝 İçindekiler
-
-1.  [Davranış Kuralları](#1-davranış-kuralları)
-2.  [Nasıl Katkıda Bulunulur?](#2-nasıl-katkıda-bulunulur)
-    *   [Hata Raporları](#hata-raporları)
-    *   [Özellik İstekleri](#özellik-istekleri)
-    *   [Kod Katkıları](#kod-katkıları)
-    *   [Dokümantasyon Katkıları](#dokümantasyon-katkıları)
-3.  [Geliştirme Ortamı Kurulumu](#3-geliştirme-ortamı-kurulumu)
-4.  [Kodlama Standartları](#4-kodlama-standartları)
-5.  [Lisanslama](#5-lisanslama)
+Please read this guide carefully before contributing. This guide provides guidelines for code contributions, bug reports, feature requests, and documentation updates.
 
 ---
 
-## 1. Davranış Kuralları
+## 📝 Table of Contents
 
-Bu projeye katılan herkesin topluluğumuza olumlu ve kapsayıcı bir deneyim sunmak için [Code of Conduct](CODE_OF_CONDUCT.md) dosyamızda belirtilen davranış kurallarına uyması beklenmektedir.
-
----
-
-## 2. Nasıl Katkıda Bulunulur?
-
-### Hata Raporları
-
-Bir hata bulduysanız, lütfen GitHub Issues üzerinden bir hata raporu oluşturun. Hata raporunuzda aşağıdaki bilgileri sağladığınızdan emin olun:
-
-*   Hatayı nasıl yeniden oluşturabileceğinize dair açık ve detaylı adımlar.
-*   Beklenen davranış ve gözlemlenen davranış.
-*   Kullandığınız işletim sistemi, Python sürümü ve kütüphane versiyonları.
-*   Varsa ekran görüntüleri veya hata çıktıları.
-
-### Özellik İstekleri
-
-Yeni bir özellik veya geliştirme önermek istiyorsanız, lütfen GitHub Issues üzerinden bir özellik isteği oluşturun. İsteklerinizde aşağıdaki bilgileri ekleyin:
-
-*   Özelliğin ne olduğunu ve neyi çözmeyi amaçladığını açıkça belirtin.
-*   Neden bu özelliğin önemli olduğunu açıklayın.
-*   Varsa kullanım senaryoları veya örnekler sunun.
-
-### Kod Katkıları
-
-Kod katkıları için genel iş akışı şöyledir:
-
-1.  Depoyu forklayın.
-2.  Yeni bir dal oluşturun (`git checkout -b feature/your-feature-name`).
-3.  Değişikliklerinizi yapın ve testleri çalıştırın. Testleri çalıştırmak için proje kök dizininde `pytest` komutunu kullanabilirsiniz.
-4.  Kodunuzun projenin [Kodlama Standartları](#4-kodlama-standartları)'na uygun olduğundan emin olun.
-5.  Değişikliklerinizi commit edin (`git commit -m "feat: Add new feature"`). Açık ve açıklayıcı commit mesajları kullanın.
-6.  Değişikliklerinizi forkladığınız depoya push edin (`git push origin feature/your-feature-name`).
-7.  Orijinal depoya bir Pull Request (Çekme İsteği) açın. Pull Request'inizde şunları belirtin:
-    *   Yaptığınız değişikliklerin kısa bir özeti.
-    *   Çözdüğü sorun veya eklediği özellik.
-    *   Nasıl test edildiğine dair bilgiler.
-
-### Dokümantasyon Katkıları
-
-Dokümantasyon güncellemeleri ve düzeltmeleri büyük beğeniyle karşılanır. Belgeleri daha anlaşılır, doğru ve kapsamlı hale getirmeye yardımcı olun. Kod katkılarına benzer şekilde, dokümantasyon değişiklikleri için de Pull Request süreci izlenir.
+1.  [Code of Conduct](#1-code-of-conduct)
+2.  [How to Contribute?](#2-how-to-contribute)
+    *   [Bug Reports](#bug-reports)
+    *   [Feature Requests](#feature-requests)
+    *   [Code Contributions](#code-contributions)
+    *   [Documentation Contributions](#documentation-contributions)
+3.  [Development Environment Setup](#3-development-environment-setup)
+4.  [Coding Standards](#4-coding-standards)
+5.  [Licensing](#5-licensing)
 
 ---
 
-## 3. Geliştirme Ortamı Kurulumu
+## 1. Code of Conduct
 
-Projeyi yerel makinenizde kurmak için [Başlangıç Kılavuzu](docs/getting-started.md) bölümüne başvurun.
-
----
-
-## 4. Kodlama Standartları
-
-*   **Python:** PEP 8 standartlarına uyun. `flake8` veya `black` gibi formatlayıcılar kullanılması önerilir.
-*   **Docstrings:** Tüm fonksiyonlar, sınıflar ve önemli metodlar için açıklayıcı docstringler (örneğin, Google tarzı) sağlayın.
-*   **Testler:** Eklediğiniz veya değiştirdiğiniz her özellik için ilgili unit veya entegrasyon testlerini yazın. Çekme istekleriniz otomatik CI/CD testleri ile denetlenecektir.
+Everyone participating in this project is expected to follow the behavioral guidelines outlined in our [Code of Conduct](CODE_OF_CONDUCT.md) to provide a positive and inclusive experience for our community.
 
 ---
 
-## 5. Lisanslama
+## 2. How to Contribute?
 
-Bu projeye yaptığınız tüm katkılar, projenin ana lisansı olan [MIT Lisansı](../LICENSE) altında lisanslanacaktır. Katkıda bulunarak, kodunuzu bu koşullar altında lisanslamayı kabul etmiş olursunuz.
+### Bug Reports
+
+If you found a bug, please create a bug report on GitHub Issues. Make sure to provide the following information in your bug report:
+
+*   Clear and detailed steps on how to reproduce the bug.
+*   Expected behavior and observed behavior.
+*   Operating system, Python version, and library versions you are using.
+*   Screenshots or error outputs if available.
+
+### Feature Requests
+
+If you want to suggest a new feature or improvement, please create a feature request on GitHub Issues. Include the following information in your requests:
+
+*   Clearly describe what the feature is and what it aims to solve.
+*   Explain why this feature is important.
+*   Provide use cases or examples if available.
+
+### Code Contributions
+
+The general workflow for code contributions is as follows:
+
+1.  Fork the repository.
+2.  Create a new branch (`git checkout -b feature/your-feature-name`).
+3.  Make your changes and run tests. You can run tests using `pytest` in the project root directory.
+4.  Ensure your code complies with the project's [Coding Standards](#4-coding-standards).
+5.  Commit your changes (`git commit -m "feat: Add new feature"`). Use clear and descriptive commit messages.
+6.  Push your changes to your forked repository (`git push origin feature/your-feature-name`).
+7.  Open a Pull Request to the original repository. In your Pull Request, specify:
+    *   A brief summary of the changes you made.
+    *   The problem it solves or the feature it adds.
+    *   Information about how it was tested.
+
+### Documentation Contributions
+
+Documentation updates and corrections are greatly appreciated. Help make the documentation more understandable, accurate, and comprehensive. Similar to code contributions, the Pull Request process is followed for documentation changes.
 
 ---
 
-Teşekkür ederiz!
+## 3. Development Environment Setup
 
-Dual-Modal Neural Network Research Projesi Ekibi 
+To set up the project on your local machine, refer to the [Getting Started Guide](docs/getting-started.md).
+
+---
+
+## 4. Coding Standards
+
+*   **Python:** Follow PEP 8 standards. Using formatters like `flake8` or `black` is recommended.
+*   **Docstrings:** Provide descriptive docstrings (e.g., Google style) for all functions, classes, and important methods.
+*   **Tests:** Write relevant unit or integration tests for each feature you add or modify. Your pull requests will be reviewed with automated CI/CD tests.
+
+---
+
+## 5. Licensing
+
+All contributions you make to this project will be licensed under the project's main license, the [MIT License](../LICENSE). By contributing, you agree to license your code under these terms.
+
+---
+
+Thank you!
+
+Dual-Modal Neural Network Research Project Team 

@@ -1,37 +1,37 @@
-# 🤝 Davranış Kuralları
+# 🤝 Code of Conduct
 
-Bu proje, açık kaynak topluluğunun gücüne inanmaktadır ve herkesin saygılı, kapsayıcı ve yapıcı bir ortamda katkıda bulunmasını beklemektedir. Amacımız, çeşitliliği teşvik etmek, farklı görüşlere saygı duymak ve herkes için güvenli ve hoş bir deneyim sağlamaktır.
+This project believes in the power of the open-source community and expects everyone to contribute in a respectful, inclusive, and constructive environment. Our goal is to promote diversity, respect different opinions, and provide a safe and pleasant experience for everyone.
 
-Bu kurallar, projenin tüm etkileşimlerini, kod katkılarını, dokümantasyon güncellemelerini, tartışmaları ve diğer tüm iletişim kanallarını kapsar.
+These rules cover all project interactions, code contributions, documentation updates, discussions, and all other communication channels.
 
-## Temel Beklentiler
+## Core Expectations
 
-*   **Saygılı Olun:** Herkese karşı saygılı ve profesyonel bir dil kullanın. Hakaret, taciz veya ayrımcılık kabul edilemez.
-*   **Kapsayıcı Olun:** Farklı bakış açılarına, deneyimlere ve arka planlara sahip kişileri kucaklayın.
-*   **Yapıcı Olun:** Eleştirilerinizi yapıcı bir şekilde ifade edin ve geri bildirimleri açık fikirlilikle kabul edin.
-*   **Dürüst Olun:** İletişimlerinizde dürüst ve şeffaf olun.
-*   **Ortak Bir Ortam Yaratın:** Herkesin rahatça soru sorabileceği, fikirlerini paylaşabileceği ve katkıda bulunabileceği bir atmosfer oluşturun.
+*   **Be Respectful:** Use respectful and professional language towards everyone. Insults, harassment, or discrimination are unacceptable.
+*   **Be Inclusive:** Embrace people with different perspectives, experiences, and backgrounds.
+*   **Be Constructive:** Express your criticisms constructively and accept feedback with an open mind.
+*   **Be Honest:** Be honest and transparent in your communications.
+*   **Create a Shared Environment:** Foster an atmosphere where everyone can comfortably ask questions, share ideas, and contribute.
 
-## Kabul Edilemez Davranışlar
+## Unacceptable Behaviors
 
-Aşağıdaki davranışlar kabul edilemez ve tolerans gösterilmeyecektir:
+The following behaviors are unacceptable and will not be tolerated:
 
-*   Cinsel taciz, ırkçılık, cinsiyetçilik, ayrımcılık veya nefret söylemi.
-*   Tehdit edici veya gözdağı verici dil kullanmak.
-*   Kişisel saldırılar, küfür veya aşağılayıcı yorumlar.
-*   Başkalarını rahatsız etmek veya istenmeyen ilgi göstermek.
-*   Sürekli olarak başkalarını kesmek veya tartışmaları sabote etmek.
-*   Özel bilgileri izinsiz olarak ifşa etmek.
+*   Sexual harassment, racism, sexism, discrimination, or hate speech.
+*   Using threatening or intimidating language.
+*   Personal attacks, profanity, or derogatory comments.
+*   Bothering others or showing unwanted attention.
+*   Continuously interrupting others or sabotaging discussions.
+*   Disclosing private information without permission.
 
-## Raporlama
+## Reporting
 
-Bir davranış kuralı ihlaliyle karşılaşırsanız veya şahit olursanız, lütfen derhal proje yöneticisiyle iletişime geçin. Tüm raporlar gizli tutulacak ve durum hızla ve adil bir şekilde ele alınacaktır.
+If you encounter or witness a code of conduct violation, please contact the project maintainer immediately. All reports will be kept confidential and the situation will be handled promptly and fairly.
 
-## Yaptırımlar
+## Enforcement
 
-Davranış kurallarının ihlali, proje yöneticisi tarafından belirlenen ve olayın ciddiyetine göre değişen yaptırımlara yol açabilir. Bu yaptırımlar, uyarıdan geçici veya kalıcı olarak projeden men edilmeye kadar değişebilir.
+Violations of the code of conduct may result in sanctions determined by the project maintainer and varying according to the severity of the incident. These sanctions can range from warnings to temporary or permanent exclusion from the project.
 
-Bu davranış kuralları, tüm katkıda bulunanları güvende tutmak ve herkes için olumlu bir topluluk deneyimi sağlamak amacıyla tasarlanmıştır.
+This code of conduct is designed to keep all contributors safe and provide a positive community experience for everyone.
 
-Teşekkür ederiz!
-Dual-Modal Neural Network Research Projesi Ekibi 
+Thank you!
+Dual-Modal Neural Network Research Project Team 
